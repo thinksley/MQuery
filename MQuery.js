@@ -170,6 +170,14 @@ MQuery.prototype.eq=function(n)
    return $(this.elements[n]);
 }
 
+function appendArr(arr1,arr2)
+{
+  for(var i=0;i<arr2.length;i++)
+  {
+	  arr1.push(arr2[i]);  
+  }
+}
+
 MQuery.prototype.find=function(str)
 {
    var aResult=[];
@@ -182,7 +190,8 @@ MQuery.prototype.find=function(str)
 				aResult=aResult.concat(aEle);
 		  default: //标签
 		      var aEle=this.elements[i].getElementsByTagName(str);
-			  aResult=aResult.concat(aEle);
+			  appendArr(aResult,aEle);
+			  //aResult=aResult.concat(aEle);
 		}
 	}
 	var newMQuery=$();

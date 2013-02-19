@@ -4,7 +4,7 @@ function getByClass(oPar,sClass)
   var results=[];
   for(var i=0;i<alls.length;i++)
   {
-    if(alls[i].className==sClass)
+	  if(alls[i].className==sClass)
 	  {
 		 results.push(alls[i]);  
 	  }  
@@ -45,7 +45,7 @@ function getStyle(obj,attr)
    }
 }
 
-function VQuery(vArg)
+function MQuery(vArg)
 {
 	//保存选中元素
 	this.elements=[];
@@ -71,7 +71,7 @@ function VQuery(vArg)
 	      this.elements.push(vArg);
 	}	
 }
-VQuery.prototype.click=function(fn)
+MQuery.prototype.click=function(fn)
 {
   	for(var i=0;i<this.elements.length;i++)
 	{
@@ -79,7 +79,7 @@ VQuery.prototype.click=function(fn)
 	}
 	return this;
 }
-VQuery.prototype.show=function()
+MQuery.prototype.show=function()
 {
     for(var i=0;i<this.elements.length;i++)
 	{
@@ -87,7 +87,7 @@ VQuery.prototype.show=function()
 	}
 	return this;
 }
-VQuery.prototype.hide=function()
+MQuery.prototype.hide=function()
 {
     for(var i=0;i<this.elements.length;i++)
 	{
@@ -95,7 +95,7 @@ VQuery.prototype.hide=function()
 	}
 	return this;
 }
-VQuery.prototype.hover=function(fnOver,fnOut)
+MQuery.prototype.hover=function(fnOver,fnOut)
 {
   	for(var i=0;i<this.elements.length;i++)
 	{
@@ -104,7 +104,7 @@ VQuery.prototype.hover=function(fnOver,fnOut)
 	}
 	return this;
 }
-VQuery.prototype.css=function(attr,value)
+MQuery.prototype.css=function(attr,value)
 {
     if(arguments.length==2) //设置样式
 	{
@@ -133,7 +133,7 @@ VQuery.prototype.css=function(attr,value)
 	return this;
 }
 
-VQuery.prototype.attr=function(attr,value)
+MQuery.prototype.attr=function(attr,value)
 {
     if(arguments.length==2) //设置
 	{
@@ -148,7 +148,7 @@ VQuery.prototype.attr=function(attr,value)
 	return this;
 }
 
-VQuery.prototype.toggle=function()
+MQuery.prototype.toggle=function()
 {
 	var _arguments=arguments;
     for(var i=0;i<this.elements.length;i++)
@@ -165,12 +165,12 @@ VQuery.prototype.toggle=function()
 	return this;
 }
 
-VQuery.prototype.eq=function(n)
+MQuery.prototype.eq=function(n)
 {
    return $(this.elements[n]);
 }
 
-VQuery.prototype.find=function(str)
+MQuery.prototype.find=function(str)
 {
    var aResult=[];
    for(var i=0;i<this.elements.length;i++)
@@ -185,9 +185,9 @@ VQuery.prototype.find=function(str)
 			  aResult=aResult.concat(aEle);
 		}
 	}
-	var newVQuery=$();
-	newVQuery.elements=aResult;
-	return newVQuery;
+	var newMQuery=$();
+	newMQuery.elements=aResult;
+	return newMQuery;
 }
 
 function getIndex(obj)
@@ -201,12 +201,12 @@ function getIndex(obj)
 	  }  
    }	
 }
-VQuery.prototype.index=function()
+MQuery.prototype.index=function()
 {
    	return getIndex(this.elements[0]);
 }
 
-VQuery.prototype.bind=function(sEv,fn)
+MQuery.prototype.bind=function(sEv,fn)
 {
    for(var i=0;i<this.elements.length;i++)
    {
@@ -221,12 +221,12 @@ VQuery.prototype.bind=function(sEv,fn)
 	直接在原型上添加了size方法
 */
 /*******************/
-VQuery.prototype.extend=function(name,fn) //插件机制
+MQuery.prototype.extend=function(name,fn) //插件机制
 {
-  VQuery.prototype[name]=fn;
+  MQuery.prototype[name]=fn;
 }
 
 function $(vArg)
 {
-  return new VQuery(vArg);
+  return new MQuery(vArg);
 }

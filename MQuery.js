@@ -18,8 +18,8 @@ function myAddEvent(obj,oEv,fn)
 	  obj.attachEvent('on'+oEv,function(){
 		    if(false==fn.call(obj))
 			{
-			  event.concelBubble=true;
-			  return false;
+			  event.concelBubble=true;//取消事件冒泡
+			  return false;   //ie下阻止默认事件
 			}
 		  });	
 	}else
@@ -27,8 +27,8 @@ function myAddEvent(obj,oEv,fn)
 	  obj.addEventListener(oEv,function(ev){
 		    if(false==fn.call(obj))
 			{
-			  event.concelBubble=true;
-			  ev.preventDefault();//moz webkit 下阻止事件绑定
+			  event.concelBubble=true;//取消事件冒泡
+			  ev.preventDefault();//moz webkit 下阻止默认事件
 			}
 		  },false);	
 	}
@@ -214,6 +214,11 @@ MQuery.prototype.index=function()
 {
    	return getIndex(this.elements[0]);
 }
+
+/*******************/
+/*使用bind时候要想阻止默认事件和事件冒泡的话 得加return false；其具体方法实现在myAddEvent里面实现
+*/
+/*******************/
 
 MQuery.prototype.bind=function(sEv,fn)
 {

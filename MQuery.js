@@ -16,7 +16,6 @@ function getByClass(oPar,sClass)
   }
   return results;
 }
-
 /**
   *name:myAddEvent   事件封装
   *@param {Object}   [obj]   对象

@@ -44,7 +44,6 @@ function myAddEvent(obj,oEv,fn)
 		  },false);	
 	}
 }
-
 /**
   *name:getStyle      获取样式
   *@param {Object}   [obj]   对象

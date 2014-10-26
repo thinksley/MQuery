@@ -9,7 +9,6 @@ $().extend('setCookie',function(name,value,iDay){
 		date.setDate(date.getDate()+iDay);
 		document.cookie=name+'='+value+';expires='+date;
 });
-
 /**
  *name:  getCookie  获取cookie
  *@param {String}   [name]   cookie名称
